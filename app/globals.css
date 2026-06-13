@@ -5,7 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-inter), 'Inter Fallback', sans-serif;
+  --font-display: var(--font-space-grotesk), 'Space Grotesk Fallback', sans-serif;
+  --font-heading: var(--font-space-grotesk), 'Space Grotesk Fallback', sans-serif;
   --font-sans: var(--font-inter), 'Inter Fallback', sans-serif;
   --font-mono: var(--font-dm-mono), 'DM Mono Fallback', monospace;
 
@@ -16,6 +17,14 @@
   --color-near-white: #f5f5f5;
   --color-muted-text: #a3a3a3;
   --color-line: #2a2a2a;
+
+  /* Dark Gallery design system aliases */
+  --color-signal-red: #e50914;
+  --color-pitch-black: #0a0a0a;
+  --color-raisin: #141414;
+  --color-silver-white: #f5f5f5;
+  --color-steel: #a3a3a3;
+  --color-charcoal-line: #2a2a2a;
 
   /* Map shadcn semantic tokens to the brand dark theme */
   --color-background: var(--background);

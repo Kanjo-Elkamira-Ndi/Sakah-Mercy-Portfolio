@@ -4,6 +4,13 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ActionLink } from '@/components/action-button'
 import { useTypewriter } from '@/hooks/use-typewriter'
+import { FigmaIcon } from '@/components/brand-icons'
+import {
+  WhimsicalIcon,
+  FigJamIcon,
+  CanvaIcon,
+  MiroIcon,
+} from '@/components/tool-icons'
 
 const container = {
   hidden: {},
@@ -25,12 +32,25 @@ const metrics = [
   { label: 'Technologies', value: '15+' },
 ]
 
+const tools = [
+  { name: 'Figma', icon: FigmaIcon, color: '#F24E1E' },
+  { name: 'Whimsical', icon: WhimsicalIcon, color: '#A855F7' },
+  { name: 'FigJam', icon: FigJamIcon, color: '#9747FF' },
+  { name: 'Canva', icon: CanvaIcon, color: '#00C4CC' },
+  { name: 'Miro', icon: MiroIcon, color: '#FFD02B' },
+]
+
+const orbitConfig = {
+  radius: 240,
+  iconSize: 52,
+}
+
 export function Hero() {
   const roles = ['Product Designer', 'UX Researcher']
   const { displayText, isDeleting } = useTypewriter(roles)
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden">
+    <section className="relative flex min-h-screen items-center">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -57,7 +77,7 @@ export function Hero() {
 
             <motion.h1
               variants={item}
-              className="font-heading text-4xl font-extrabold leading-[1.05] tracking-tight text-near-white text-balance sm:text-5xl lg:text-6xl"
+              className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-near-white text-balance sm:text-5xl lg:text-6xl"
             >
               {displayText}
               <motion.span
@@ -114,7 +134,45 @@ export function Hero() {
             variants={item}
             className="relative flex justify-center md:justify-end"
           >
-            <div className="relative">
+            <div className="relative inline-flex items-center justify-center">
+              {/* Static tool icons around the image */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <div className="relative" style={{ width: 0, height: 0 }}>
+                  {tools.map((tool, i) => {
+                    const angle = (360 / tools.length) * i
+                    const Icon = tool.icon
+                    return (
+                      <div
+                        key={tool.name}
+                        className="absolute flex items-center justify-center"
+                        style={{
+                          left: 0,
+                          top: 0,
+                          width: orbitConfig.iconSize,
+                          height: orbitConfig.iconSize,
+                          marginLeft: -orbitConfig.iconSize / 2,
+                          marginTop: -orbitConfig.iconSize / 2,
+                          transform: `rotate(${angle}deg) translateX(${orbitConfig.radius}px)`,
+                        }}
+                      >
+                        <div
+                          className="flex items-center justify-center rounded-full border border-line bg-surface p-3 shadow-lg"
+                          style={{
+                            width: orbitConfig.iconSize,
+                            height: orbitConfig.iconSize,
+                            color: tool.color,
+                            transform: `rotate(${-angle}deg)`,
+                          }}
+                        >
+                          <Icon size={28} />
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Radial glow */}
               <div
                 aria-hidden
                 className="pointer-events-none absolute -inset-8 rounded-full"
@@ -123,7 +181,17 @@ export function Hero() {
                     'radial-gradient(350px circle at center, rgba(229,9,20,0.12), transparent 70%)',
                 }}
               />
-              <div className="relative aspect-square w-80 rounded-full border-2 border-line bg-surface p-2 sm:w-96">
+
+              {/* Bouncy profile image */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+                className="relative aspect-square w-80 rounded-full border-2 border-line bg-surface p-2 sm:w-96"
+              >
                 <div className="h-full w-full overflow-hidden rounded-full">
                   <Image
                     src="/profile.png"
@@ -133,7 +201,9 @@ export function Hero() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-              </div>
+              </motion.div>
+
+              {/* Floating name badge */}
               <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-line bg-surface px-4 py-1.5 font-mono text-xs text-near-white shadow-lg">
                 Sakah V. Mercy
               </div>

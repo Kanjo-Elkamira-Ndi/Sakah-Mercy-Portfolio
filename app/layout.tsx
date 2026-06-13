@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Inter, DM_Mono } from 'next/font/google'
+import { Inter, DM_Mono, Space_Grotesk } from 'next/font/google'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import './globals.css'
@@ -9,6 +9,12 @@ const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
+})
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 })
 
 const dmMono = DM_Mono({
@@ -32,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${inter.variable} ${dmMono.variable} bg-background`}
+      className={`dark ${inter.variable} ${spaceGrotesk.variable} ${dmMono.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         <Navbar />

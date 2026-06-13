@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T00:00:00.000Z",
+  "title": "Design System: The Dark Gallery",
+  "extensions": {
+    "colorMeta": {
+      "signal-red": {
+        "role": "primary",
+        "displayName": "Signal Red",
+        "canonical": "oklch(53% 0.23 30)",
+        "tonalRamp": ["oklch(12% 0.07 30)", "oklch(22% 0.12 30)", "oklch(32% 0.17 30)", "oklch(42% 0.21 30)", "oklch(53% 0.23 30)", "oklch(64% 0.19 30)", "oklch(75% 0.14 30)", "oklch(86% 0.08 30)"]
+      },
+      "pitch-black": {
+        "role": "neutral",
+        "displayName": "Pitch Black",
+        "canonical": "oklch(4% 0.005 30)",
+        "tonalRamp": ["oklch(1% 0.001 30)", "oklch(2% 0.002 30)", "oklch(4% 0.005 30)", "oklch(6% 0.006 30)", "oklch(8% 0.007 30)", "oklch(10% 0.008 30)", "oklch(12% 0.008 30)", "oklch(15% 0.009 30)"]
+      },
+      "raisin": {
+        "role": "neutral",
+        "displayName": "Raisin",
+        "canonical": "oklch(10% 0.008 30)",
+        "tonalRamp": ["oklch(3% 0.004 30)", "oklch(6% 0.006 30)", "oklch(10% 0.008 30)", "oklch(14% 0.009 30)", "oklch(18% 0.009 30)", "oklch(22% 0.01 30)", "oklch(26% 0.01 30)", "oklch(30% 0.01 30)"]
+      },
+      "silver-white": {
+        "role": "neutral",
+        "displayName": "Silver White",
+        "canonical": "oklch(94% 0.002 30)",
+        "tonalRamp": ["oklch(60% 0.005 30)", "oklch(68% 0.005 30)", "oklch(76% 0.004 30)", "oklch(82% 0.003 30)", "oklch(88% 0.003 30)", "oklch(94% 0.002 30)", "oklch(96% 0.002 30)", "oklch(98% 0.001 30)"]
+      },
+      "steel": {
+        "role": "neutral",
+        "displayName": "Steel",
+        "canonical": "oklch(64% 0.005 30)",
+        "tonalRamp": ["oklch(30% 0.005 30)", "oklch(38% 0.005 30)", "oklch(46% 0.005 30)", "oklch(54% 0.005 30)", "oklch(64% 0.005 30)", "oklch(72% 0.005 30)", "oklch(80% 0.004 30)", "oklch(88% 0.003 30)"]
+      },
+      "charcoal-line": {
+        "role": "neutral",
+        "displayName": "Charcoal Line",
+        "canonical": "oklch(20% 0.01 30)",
+        "tonalRamp": ["oklch(8% 0.005 30)", "oklch(12% 0.007 30)", "oklch(16% 0.008 30)", "oklch(20% 0.01 30)", "oklch(24% 0.01 30)", "oklch(28% 0.011 30)", "oklch(32% 0.011 30)", "oklch(36% 0.011 30)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only. Max 8 words. Space Grotesk 700." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles. Space Grotesk 800." },
+      "title": { "displayName": "Title", "purpose": "Card titles, project names. Inter 700." },
+      "body": { "displayName": "Body", "purpose": "All prose. Inter 400, 65-75ch max width." },
+      "label": { "displayName": "Label", "purpose": "Metadata, nav, input labels. DM Mono 12px uppercase." }
+    },
+    "shadows": [
+      { "name": "surface-rest", "value": "0 1px 3px rgba(0,0,0,0.3)", "purpose": "Default card/container state. Barely perceptible separation." },
+      { "name": "surface-hover", "value": "0 4px 12px rgba(229,9,20,0.12), 0 2px 4px rgba(0,0,0,0.3)", "purpose": "Interactive surface hover. Warm-tinted toward Signal Red." },
+      { "name": "modal-overlay", "value": "0 20px 60px rgba(0,0,0,0.5)", "purpose": "Dialogs, drawers, lightbox. Deep floating elevation." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Default easing for UI transitions. Strong ease-out." },
+      { "name": "ease-reveal", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Scroll-triggered entrance reveals. Gentle exponential." },
+      { "name": "duration-instant", "value": "100ms", "purpose": "Button press feedback." },
+      { "name": "duration-fast", "value": "200ms", "purpose": "Hover states, tooltips, small UI transitions." },
+      { "name": "duration-standard", "value": "400ms", "purpose": "Modal, drawer, section entrance." },
+      { "name": "duration-slow", "value": "500ms", "purpose": "Hero staggered entrance, emphasis reveals." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Action Button — Filled",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary CTA. Signal Red bg, monospace label, inverts on hover.",
+      "html": "<button class=\"ds-btn-filled\">View Projects</button>",
+      "css": ".ds-btn-filled { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 52px; padding: 0 2rem; background: #e50914; color: #f5f5f5; border: 1px solid #e50914; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 16px; font-weight: 500; letter-spacing: 0.05em; cursor: pointer; transition: background 200ms ease-out, color 200ms ease-out, transform 200ms ease-out; } .ds-btn-filled:hover { background: transparent; color: #e50914; } .ds-btn-filled:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Action Button — Outlined",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary CTA. Transparent bg, Signal Red border, fills on hover.",
+      "html": "<button class=\"ds-btn-outline\">Contact Me</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 52px; padding: 0 2rem; background: transparent; color: #e50914; border: 1px solid #e50914; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: 16px; font-weight: 500; letter-spacing: 0.05em; cursor: pointer; transition: background 200ms ease-out, color 200ms ease-out, transform 200ms ease-out; } .ds-btn-outline:hover { background: #e50914; color: #f5f5f5; } .ds-btn-outline:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "UI Button — Default",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Internal UI button. Raisin bg, compact.",
+      "html": "<button class=\"ds-btn-ui\">Save</button>",
+      "css": ".ds-btn-ui { display: inline-flex; align-items: center; justify-content: center; height: 32px; padding: 0 12px; background: #141414; color: #f5f5f5; border: 1px solid #2a2a2a; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 200ms ease-out, color 200ms ease-out; box-shadow: 0 1px 3px rgba(0,0,0,0.3); } .ds-btn-ui:hover { background: #1a1a1a; } .ds-btn-ui:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Card Surface",
+      "kind": "card",
+      "refersTo": "card-surface",
+      "description": "Standard card/container. Raisin surface, Charcoal border, subtle shadow.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card-label\">Category</div><div class=\"ds-card-title\">Project Name</div><div class=\"ds-card-body\">Short description of the project and its impact.</div></div>",
+      "css": ".ds-card { background: #141414; border: 1px solid #2a2a2a; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); } .ds-card-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: #e50914; margin-bottom: 8px; } .ds-card-title { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 20px; font-weight: 700; color: #f5f5f5; line-height: 1.3; margin-bottom: 8px; } .ds-card-body { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.65; color: #a3a3a3; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Text input in Raisin surface with Signal Red focus ring.",
+      "html": "<label class=\"ds-label\">Your Name</label><input class=\"ds-input\" type=\"text\" placeholder=\"Enter your name\" />",
+      "css": ".ds-label { display: block; margin-bottom: 8px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: #a3a3a3; } .ds-input { width: 100%; padding: 12px 16px; background: #141414; color: #f5f5f5; border: 1px solid #2a2a2a; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 14px; outline: none; transition: border-color 200ms ease-out, box-shadow 200ms ease-out; box-shadow: 0 1px 3px rgba(0,0,0,0.3); } .ds-input::placeholder { color: #a3a3a3; } .ds-input:focus { border-color: #e50914; box-shadow: 0 0 0 1px #e50914; }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "description": "Pill-shaped status indicator with dot. Raisin surface, Steel text.",
+      "html": "<span class=\"ds-badge\"><span class=\"ds-badge-dot\"></span>Available for opportunities</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: #141414; border: 1px solid #2a2a2a; border-radius: 9999px; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #a3a3a3; } .ds-badge-dot { width: 8px; height: 8px; border-radius: 9999px; background: #22c55e; }"
+    },
+    {
+      "name": "Navigation Bar",
+      "kind": "nav",
+      "description": "Fixed top nav. Pitch Black with backdrop-blur, DM Mono links.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-nav-logo\">SVM</div><div class=\"ds-nav-links\"><a href=\"#\" class=\"ds-nav-link active\">Work</a><a href=\"#\" class=\"ds-nav-link\">About</a><a href=\"#\" class=\"ds-nav-link\">Contact</a></div></nav>",
+      "css": ".ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: 64px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; background: rgba(10,10,10,0.8); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; max-width: 1140px; margin: 0 auto; } .ds-nav-logo { font-family: 'DM Mono', monospace; font-size: 18px; font-weight: 500; letter-spacing: -0.02em; color: #e50914; } .ds-nav-links { display: flex; gap: 32px; } .ds-nav-link { font-family: 'DM Mono', monospace; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: #a3a3a3; text-decoration: none; transition: color 200ms ease-out; position: relative; } .ds-nav-link:hover { color: #f5f5f5; } .ds-nav-link.active { color: #f5f5f5; } .ds-nav-link.active::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 100%; height: 2px; background: #e50914; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Dark Gallery",
+    "overview": "A controlled, gallery-like space where the work takes focus. Warm off-black walls, precise lighting on each piece, generous sightlines. The visitor moves deliberately from piece to piece. The system rejects the student-portfolio reflex — no gradient text, no glassmorphism, no decorative blurs, no skill-bar percentages. Every surface has intention. The dark background is not a trend; it's the gallery wall — it disappears so the work speaks. Signal Red appears sparingly, like a gallery label or a directional mark, never as decoration.",
+    "keyCharacteristics": [
+      "Gallery-quiet backgrounds; typography and content do the work",
+      "One accent (Signal Red), used sparingly for interaction and wayfinding",
+      "Flat surfaces at rest, soft warm-tinted shadows on interaction",
+      "Monospace labels for metadata; Space Grotesk for display authority; Inter for readable body copy",
+      "Generous whitespace between sections, tighter spacing within",
+      "Responsive without breakpoint gymnastics: stack on mobile, two-column grid on md+"
+    ],
+    "rules": [
+      { "name": "The Signal Red Rule", "body": "Signal Red covers ≤2% of any given screen. It labels, it indicates action, it marks the current state. If a section uses red on more than one element type, the design is shouting. Pick one application per section.", "section": "colors" },
+      { "name": "The Balance Rule", "body": "Every heading uses `text-wrap: balance`. Every body paragraph longer than 3 lines uses `text-wrap: pretty` to eliminate orphans.", "section": "typography" },
+      { "name": "The Shallow Depth Rule", "body": "No surface should appear to float more than 8px from the background at rest. Hover states can lift to ~16px. If a shadow's blur exceeds 24px, the element reads as disconnected, not elevated.", "section": "elevation" }
+    ],
+    "dos": [
+      "Use Signal Red as a single focused accent. One application per section.",
+      "Let Pitch Black backgrounds disappear so content leads.",
+      "Use generous section whitespace to give each piece breathing room.",
+      "Use monospace labels for metadata, structural information, and navigation.",
+      "Stagger entrances (30-80ms delays) for lists and grids. Keep reveals under 500ms.",
+      "Use `text-wrap: balance` on headings and `text-wrap: pretty` on prose.",
+      "Honor `prefers-reduced-motion`: collapse transform motion, keep opacity fades at ≤200ms."
+    ],
+    "donts": [
+      "Don't use gradient text. Single solid colors only.",
+      "Don't use side-stripe borders as decorative accent.",
+      "Don't use glassmorphism.",
+      "Don't use skill bars, percentages, or rating systems.",
+      "Don't repeat the same layout family more than once on the page.",
+      "Don't put tiny uppercase tracked eyebrows above every section heading. Max 1 per 3 sections.",
+      "Don't use numbered section markers as default scaffolding.",
+      "Don't use em dashes in copy.",
+      "Don't use marketing buzzwords.",
+      "Don't use hardcoded `h-screen` — use `min-h-[100dvh]`.",
+      "Don't let hero headlines exceed 2 lines on desktop."
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "port": 8400,
+  "framework": "next",
+  "files": ["app/layout.tsx", "app/page.tsx", "app/globals.css"],
+  "insertBefore": "</head>",
+  "commentSyntax": "//"
+}
